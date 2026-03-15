@@ -5,7 +5,7 @@
 import { defineConfig, globalIgnores } from "eslint/config";
 import globals from "globals";
 import checkFile from "eslint-plugin-check-file";
-import header from "eslint-plugin-header";
+import header from "@tony.ganchev/eslint-plugin-header";
 import importPlugin from "eslint-plugin-import";
 import vitestPlugin from "@vitest/eslint-plugin";
 import js from "@eslint/js";
@@ -13,12 +13,6 @@ import jsdoc from "eslint-plugin-jsdoc";
 import storybook from "eslint-plugin-storybook";
 import nextVitals from "eslint-config-next/core-web-vitals";
 import nextTs from "eslint-config-next/typescript";
-
-// Workaround for a compatibility issue between eslint-plugin-header and ESLint v9:
-// See https://github.com/Stuk/eslint-plugin-header/issues/59
-// TODO: This line can be removed and the default header config can be used
-// again after the aforementioned issue has been fixed.
-header.rules.header.meta.schema = false;
 
 const estlintConfig = defineConfig([
   js.configs.recommended,
